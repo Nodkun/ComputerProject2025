@@ -15,5 +15,7 @@ public class Project
 
         window.setLocationRelativeTo(null);
         window.setVisible(true); 
+
+        //v helpful moshi
     }
 }
