@@ -2,7 +2,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
 
-public class Subpanel extends JPanel
+public class Subpanel extends JPanel implements Runnable
 {
     //Screen Settings
     final int originalTileSize = 16; //16x16 tile
@@ -14,10 +14,21 @@ public class Subpanel extends JPanel
     final int screenWidth = tileSize * maxScreenCol; //768 pixels
     final int screenHeight = tileSize * maxScreenRow; //576 pixels
 
+    Thread gameThread;
     public Subpanel()
     {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black); //background color
         this.setDoubleBuffered(true); //for better performance
+    }
+    public void startGameThread()
+    {
+        gameThread = new Thread(this);
+        gameThread.start();
+    }
+    @Override
+    public void run() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'run'");
     } 
 }

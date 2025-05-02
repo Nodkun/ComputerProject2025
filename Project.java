@@ -6,7 +6,7 @@ public class Project
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
-        window.setTitle("NINJA HATTORI");
+        window.setTitle("CapyCrew");
 
         Subpanel gamePanel = new Subpanel();
         window.add(gamePanel);
