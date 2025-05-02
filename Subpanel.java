@@ -19,7 +19,7 @@ public class Subpanel extends JPanel implements Runnable
 
     int FPS = 60; //frames per second
     
-    KeyboardMovements keyH = new KeyboardMovements(); //create an instance of the KeyboardMovements class
+    KeyboardMovements key = new KeyboardMovements(); //create an instance of the KeyboardMovements class
 
     Thread gameThread;
 
@@ -33,7 +33,7 @@ public class Subpanel extends JPanel implements Runnable
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black); //background color
         this.setDoubleBuffered(true); //for better performance
-        this.addKeyListener(keyH); //add the key listener to the panel
+        this.addKeyListener(key); //add the key listener to the panel
         this.setFocusable(true);
     }
     public void startGameThread()
@@ -59,19 +59,19 @@ public class Subpanel extends JPanel implements Runnable
     public void update()
     {
         //update the game
-        if(keyH.upPressed == true) //if the up key is pressed
+        if(key.upPressed == true) //if the up key is pressed
         {
             playerY -= playerSpeed; //move the player up
         }
-        else if(keyH.downPressed == true) //if the down key is pressed
+        else if(key.downPressed == true) //if the down key is pressed
         {
             playerY += playerSpeed; //move the player down
         }
-        else if (keyH.leftPressed == true) //if the left key is pressed
+        else if (key.leftPressed == true) //if the left key is pressed
         {
             playerX -= playerSpeed; //move the player left
         }
-        else if(keyH.rightPressed == true) //if the right key is pressed
+        else if(key.rightPressed == true) //if the right key is pressed
         {
             playerX += playerSpeed; //move the player right
         }

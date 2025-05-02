@@ -29,16 +29,16 @@ public class KeyboardMovements implements KeyListener
         
         int code = e.getKeyCode(); //get the key that was released
 
-        if (key == KeyEvent.VK_W) { 
+        if (code == KeyEvent.VK_W) { 
             upPressed = false; //set the upPressed variable to true if the W key is pressed
         }
-        if (key == KeyEvent.VK_S) { 
+        if (code == KeyEvent.VK_S) { 
             downPressed = false; //set the downPressed variable to true if the S key is pressed
         }
-        if (key == KeyEvent.VK_A) { 
+        if (code == KeyEvent.VK_A) { 
             leftPressed = false; //set the leftPressed variable to true if the A key is pressed
         }
-        if (key == KeyEvent.VK_D) { 
+        if (code == KeyEvent.VK_D) { 
             rightPressed = false; //set the rightPressed variable to true if the D key is pressed    
         }
     }
