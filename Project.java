@@ -1,6 +1,6 @@
 class Project
 {
-    public static void Main(string[] args)
+    public static void main(String[] args)
     {
         System.out.println("Hello, World!");
     }
