@@ -1,11 +1,19 @@
-import java.util.Scanner;
+import javax.swing.JFrame;
 public class Project
 {
     public static void main(String[] args)
     {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("What is the objective of the project:");
-        String objective = scanner.nextLine();
-        System.out.println("Objective is: " +objective);
+        JFrame window = new JFrame();
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setResizable(false);
+        window.setTitle("NINJA HATTORI");
+
+        Subpanel gamePanel = new Subpanel();
+        window.add(gamePanel);
+
+        window.pack(); //sets the size of the window to fit the preferred size of the panel
+
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
     }
 }
