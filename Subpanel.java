@@ -26,6 +26,7 @@ public class Subpanel extends JPanel implements Runnable
         gameThread = new Thread(this);
         gameThread.start();
     }
+    //threads edited
     @Override
     public void run() {
         // TODO Auto-generated method stub
