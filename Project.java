@@ -14,6 +14,6 @@ public class Project
         window.pack(); //sets the size of the window to fit the preferred size of the panel
 
         window.setLocationRelativeTo(null);
-        window.setVisible(true);
+        window.setVisible(true); //Nihall
     }
 }

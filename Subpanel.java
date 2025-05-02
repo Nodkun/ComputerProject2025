@@ -17,7 +17,7 @@ public class Subpanel extends JPanel
     public Subpanel()
     {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-        this.setBackground(Color.black);
+        this.setBackground(Color.black); //background color
         this.setDoubleBuffered(true); //for better performance
-    }
+    } 
 }
