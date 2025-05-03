@@ -20,6 +20,7 @@ public class Subpanel extends JPanel implements Runnable
     int FPS = 60; //frames per second
     
     KeyboardMovements key = new KeyboardMovements(); //create an instance of the KeyboardMovements class
+    Player player = new Player(this, key); //create an instance of the Player class
 
     Thread gameThread;
 
