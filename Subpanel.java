@@ -11,7 +11,7 @@ public class Subpanel extends JPanel implements Runnable
     final int originalTileSize = 16; //16x16 tile
     final int scale = 3; //3x scale
 
-    final int tileSize = originalTileSize * scale; //48x48 tile
+    public final int tileSize = originalTileSize * scale; //48x48 tile
     final int maxScreenCol = 16; //16 columns
     final int maxScreenRow = 12; //12 rows
     final int screenWidth = tileSize * maxScreenCol; //768 pixels
@@ -108,30 +108,15 @@ public class Subpanel extends JPanel implements Runnable
     }
     public void update()
     {
-        //update the game
-        if(key.upPressed == true) //if the up key is pressed
-        {
-            playerY -= playerSpeed; //move the player up
-        }
-        else if(key.downPressed == true) //if the down key is pressed
-        {
-            playerY += playerSpeed; //move the player down
-        }
-        else if (key.leftPressed == true) //if the left key is pressed
-        {
-            playerX -= playerSpeed; //move the player left
-        }
-        else if(key.rightPressed == true) //if the right key is pressed
-        {
-            playerX += playerSpeed; //move the player right
-        }
+        player.update();
     } 
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g; //for better performance
-        g2.setColor(Color.white); 
-        g2.fillRect(playerX, playerY, tileSize, tileSize); //draw a rectangle at (0,0) with width and height of tileSize
+
+        player.draw(); 
+
         g2.dispose(); //dispose of the graphics object to free up resources
     }
 } 
