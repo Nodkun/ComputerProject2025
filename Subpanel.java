@@ -43,17 +43,66 @@ public class Subpanel extends JPanel implements Runnable
     }
     //threads edited
     @Override
-    public void run() {
-        // TODO Auto-generated method stub
-        while(gameThread != null)
-        {
-           long currentTime = System.nanoTime(); //get the current time in nanoseconds
-            // System.out.println("The game loop is running");
-           // 1 UPDATE: update information such as character postions
-           update();
-           // 2 DRAW: draw the screen with the updated information
-           repaint();
+    // public void run() {
 
+    //     double drawInterval = 1000000000/FPS; //0.0166666666666667 seconds
+    //     double nextDrawTime = System.nanoTime() + drawInterval; //next draw time
+
+    //     // TODO Auto-generated method stub
+    //     while(gameThread != null)
+    //     {
+           
+    //        update();
+
+    //        repaint();
+
+           
+    //        try
+    //        {
+    //             double remainingTime = nextDrawTime - System.nanoTime(); //calculate the remaining time
+    //             if(remainingTime < 0) //if the remaining time is less than 0
+    //             {
+    //                 remainingTime = 0; //set the remaining time to 0
+    //             }
+    //             Thread.sleep((long)remainingTime / 1000000); //sleep for the remaining time in milliseconds
+    //             nextDrawTime += drawInterval; //set the next draw time to the current time + the draw interval
+    //        } 
+    //        catch(InterruptedException e)
+    //        {
+    //             e.printStackTrace(); //print the stack trace if there is an error
+    //        }
+
+    //     }
+    // }
+
+    public void run() 
+    {
+        double drawInterval = 1000000000/FPS; //0.0166666666666667 seconds
+        double delta = 0;
+        long lastTime = System.nanoTime(); //get the current time in nanoseconds
+        long currentTime; //current time in nanoseconds 
+        long timer = 0;
+        long drawCount = 0; //number of frames drawn 
+
+        while (gameThread!=null)
+        {
+            currentTime = System.nanoTime(); //get the current time in nanoseconds
+            delta += (currentTime - lastTime) / drawInterval; //calculate the delta time 
+            timer += (currentTime - lastTime); //calculate the timer   
+            lastTime = currentTime; //set the last time to the current time
+            if(delta >= 1) //if the delta time is greater than or equal to 1
+            {
+                update(); //update the game
+                repaint(); //repaint the screen
+                delta--; //decrease the delta time by 1
+                drawCount++; //increase the number of frames drawn by 1
+            }
+            if (timer >= 1000000000) //if the timer is greater than or equal to 1 second
+            {
+                System.out.println("FPS: " + drawCount); //print the number of frames drawn per second
+                drawCount = 0; //reset the number of frames drawn to 0
+                timer = 0; //reset the timer to 0
+            }
         }
     }
     public void update()
