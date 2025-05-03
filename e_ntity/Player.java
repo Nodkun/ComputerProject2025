@@ -1,6 +1,10 @@
+package e_ntity;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+
+import Main.KeyboardMovements;
+import Main.Subpanel;
 
 public class Player extends Entity
 {

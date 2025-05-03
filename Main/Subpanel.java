@@ -1,4 +1,8 @@
+package Main;
 import javax.swing.JPanel;
+
+import e_ntity.Player;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -115,7 +119,7 @@ public class Subpanel extends JPanel implements Runnable
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g; //for better performance
 
-        player.draw(); 
+        player.draw(g2); 
 
         g2.dispose(); //dispose of the graphics object to free up resources
     }
