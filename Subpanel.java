@@ -80,7 +80,7 @@ public class Subpanel extends JPanel implements Runnable
     {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g; //for better performance
-        g2.setColor(Color.white); //set color to white
+        g2.setColor(Color.white); 
         g2.fillRect(playerX, playerY, tileSize, tileSize); //draw a rectangle at (0,0) with width and height of tileSize
         g2.dispose(); //dispose of the graphics object to free up resources
     }
