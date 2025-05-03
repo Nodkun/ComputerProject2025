@@ -1,7 +1,8 @@
-package Main;
+package Src.Main;
 import javax.swing.JPanel;
 
-import e_ntity.Player;
+// Ensure the correct package path for the Player class
+import Src.e_ntity.Player; // Update this path if the Player class is in a different package
 
 import java.awt.Color;
 import java.awt.Dimension;

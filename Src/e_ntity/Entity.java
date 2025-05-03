@@ -1,4 +1,4 @@
-package e_ntity;
+package Src.e_ntity;
 public class Entity
 {
     public int x,y ;
