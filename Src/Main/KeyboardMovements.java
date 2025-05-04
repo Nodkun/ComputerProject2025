@@ -6,11 +6,11 @@ public class KeyboardMovements implements KeyListener
 {
     public boolean upPressed , downPressed , leftPressed , rightPressed; //boolean variables to check if the keys are pressed
     public void keyTyped(KeyEvent e) {
-        // TODO Auto-generated method stub
+       
     }
 
     public void keyPressed(KeyEvent e){
-        //TODO Auto-generated method stub
+        
         int key = e.getKeyCode(); //get the key that was pressed
         if (key == KeyEvent.VK_W) { 
             upPressed = true; //set the upPressed variable to true if the W key is pressed
@@ -26,7 +26,7 @@ public class KeyboardMovements implements KeyListener
         }
     }
     public void keyReleased(KeyEvent e) {
-        // TODO Auto-generated method stub
+        
         
         int code = e.getKeyCode(); //get the key that was released
 

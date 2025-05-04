@@ -5,10 +5,11 @@ import javax.swing.JPanel;
 import Src.e_ntity.Player; // Update this path if the Player class is in a different package
 
 import java.awt.Color;
+//import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.security.Key;
+//import java.security.Key;
 
 public class Subpanel extends JPanel implements Runnable
 {
@@ -29,10 +30,7 @@ public class Subpanel extends JPanel implements Runnable
 
     Thread gameThread;
 
-    //Set player's default position
-    int playerX = 100; //x position of the player
-    int playerY = 100; //y position of the player
-    int playerSpeed = 4; //speed of the player
+    
 
     public Subpanel()
     {
@@ -49,12 +47,13 @@ public class Subpanel extends JPanel implements Runnable
     }
     //threads edited
     @Override
+    //sleep method (not in use, just for referance if need new loop)
     // public void run() {
 
     //     double drawInterval = 1000000000/FPS; //0.0166666666666667 seconds
     //     double nextDrawTime = System.nanoTime() + drawInterval; //next draw time
 
-    //     // TODO Auto-generated method stub
+    //     
     //     while(gameThread != null)
     //     {
            
@@ -70,7 +69,7 @@ public class Subpanel extends JPanel implements Runnable
     //             {
     //                 remainingTime = 0; //set the remaining time to 0
     //             }
-    //             Thread.sleep((long)remainingTime / 1000000); //sleep for the remaining time in milliseconds
+    //             Thread.sleep((long)remainingTime / 1000000); //sleep for the remaining time in milliseconds (innacurate)
     //             nextDrawTime += drawInterval; //set the next draw time to the current time + the draw interval
     //        } 
     //        catch(InterruptedException e)
@@ -83,18 +82,19 @@ public class Subpanel extends JPanel implements Runnable
 
     public void run() 
     {
-        double drawInterval = 1000000000/FPS; //0.0166666666666667 seconds
+        double drawInterval = 1000000000/FPS; //draws the screen every 0.0166666666666667 seconds
         double delta = 0;
-        long lastTime = System.nanoTime(); //get the current time in nanoseconds
+        long lastTime = System.nanoTime(); //get the current system time in nanoseconds (big number)
         long currentTime; //current time in nanoseconds 
         long timer = 0;
         long drawCount = 0; //number of frames drawn 
 
         while (gameThread!=null)
         {
+            //Delta or accumulator method for drawing screen
             currentTime = System.nanoTime(); //get the current time in nanoseconds
-            delta += (currentTime - lastTime) / drawInterval; //calculate the delta time 
-            timer += (currentTime - lastTime); //calculate the timer   
+            delta += (currentTime - lastTime) / drawInterval; //calculate the delta time - check how much time has passed 
+            timer += (currentTime - lastTime); //calculate the timer - check how much time has past  
             lastTime = currentTime; //set the last time to the current time
             if(delta >= 1) //if the delta time is greater than or equal to 1
             {
