@@ -3,6 +3,7 @@ import javax.swing.JPanel;
 
 // Ensure the correct package path for the Player class
 import Src.e_ntity.Player; // Update this path if the Player class is in a different package
+import Src.tile.TileManager;
 
 import java.awt.Color;
 //import java.awt.Color;
@@ -24,7 +25,7 @@ public class Subpanel extends JPanel implements Runnable
     final int screenHeight = tileSize * maxScreenRow; //576 pixels
 
     int FPS = 60; //frames per second
-    
+    TileManager tileM = new TileManager(this);
     KeyboardMovements key = new KeyboardMovements(); //create an instance of the KeyboardMovements class
     Player player = new Player(this, key); //create an instance of the Player class
 
@@ -120,7 +121,9 @@ public class Subpanel extends JPanel implements Runnable
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g; //for better performance
 
-        player.draw(g2); 
+        tileM.draw(g2);
+
+        player.draw(g2); //after tile so that it is on next layer
 
         g2.dispose(); //dispose of the graphics object to free up resources
     }
