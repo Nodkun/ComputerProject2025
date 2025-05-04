@@ -15,17 +15,24 @@ public class Player extends Entity
 {
     Subpanel gp;
     KeyboardMovements key; //create an instance of the KeyboardMovements class
+
+    public final int screenX;
+    public final int screenY;
+
     public Player(Subpanel gp, KeyboardMovements key)
     {
         this.gp = gp; //set the subpanel
         this.key = key; //set the keyboard movements
 
+        screenX = gp.screenWidth/2 -(gp.tileSize/2);
+        screenY = gp.screenHeight/2 -(gp.tileSize/2);
+
         setDefaultValues();
         getPlayerImage();
     }
     public void setDefaultValues(){  //default values for player
-          x = 100;
-          y=100;
+          worldx = gp.tileSize * 23;
+          worldy=gp.tileSize * 21;
           speed = 3; 
           direction = "down";
 
@@ -64,22 +71,22 @@ public class Player extends Entity
          if(key.upPressed == true) //if the up key is pressed
         {
             direction = "up";
-            y -= speed; //move the player up
+            worldy -= speed; //move the player up
         }
         else if(key.downPressed == true) //if the down key is pressed
         {
             direction = "down";
-            y  += speed; //move the player down
+            worldy  += speed; //move the player down
         }
         else if (key.leftPressed == true) //if the left key is pressed
         {
             direction = "left";
-            x -= speed; //move the player left
+            worldx -= speed; //move the player left
         }
         else if(key.rightPressed == true) //if the right key is pressed
         {
             direction = "right";
-            x += speed; //move the player right
+            worldx += speed; //move the player right
         }
         
 //technical changing of sprite in movement animation
@@ -155,7 +162,7 @@ public class Player extends Entity
 
         }//set player sprite value based on direction
         
-        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);//Draw image of player sprite
+        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);//Draw image of player sprite
 
      }
 }

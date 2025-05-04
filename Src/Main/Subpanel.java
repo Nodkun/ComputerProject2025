@@ -24,6 +24,15 @@ public class Subpanel extends JPanel implements Runnable
     public final int screenWidth = tileSize * maxScreenCol; //768 pixels
     public final int screenHeight = tileSize * maxScreenRow; //576 pixels
 
+
+    //World Settings 
+
+    public final int maxWorldCol = 50;
+    public final int maxWorldRow = 50;
+    public final int worldWidth = tileSize * maxWorldCol;
+    public final int worldHeight = tileSize * maxWorldRow;
+
+
     int FPS = 60; //frames per second
     TileManager tileM = new TileManager(this);
     KeyboardMovements key = new KeyboardMovements(); //create an instance of the KeyboardMovements class
