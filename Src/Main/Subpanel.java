@@ -19,10 +19,10 @@ public class Subpanel extends JPanel implements Runnable
     final int scale = 3; //3x scale
 
     public final int tileSize = originalTileSize * scale; //48x48 tile
-    final int maxScreenCol = 16; //16 columns
-    final int maxScreenRow = 12; //12 rows
-    final int screenWidth = tileSize * maxScreenCol; //768 pixels
-    final int screenHeight = tileSize * maxScreenRow; //576 pixels
+    public final int maxScreenCol = 16; //16 columns
+    public final int maxScreenRow = 12; //12 rows
+    public final int screenWidth = tileSize * maxScreenCol; //768 pixels
+    public final int screenHeight = tileSize * maxScreenRow; //576 pixels
 
     int FPS = 60; //frames per second
     TileManager tileM = new TileManager(this);

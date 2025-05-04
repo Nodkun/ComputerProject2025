@@ -4,7 +4,7 @@ import java.awt.event.KeyListener;
 
 public class KeyboardMovements implements KeyListener
 {
-    public boolean upPressed , downPressed , leftPressed , rightPressed; //boolean variables to check if the keys are pressed
+    public boolean upPressed , downPressed , leftPressed , rightPressed, dancePressed; //boolean variables to check if the keys are pressed
     public void keyTyped(KeyEvent e) {
        
     }
@@ -24,6 +24,10 @@ public class KeyboardMovements implements KeyListener
         if (key == KeyEvent.VK_D) { 
             rightPressed = true; //set the rightPressed variable to true if the D key is pressed    
         }
+        if (key==KeyEvent.VK_P)
+        {
+            dancePressed = true;//set dance as true if P is pressed
+        }
     }
     public void keyReleased(KeyEvent e) {
         
@@ -41,6 +45,9 @@ public class KeyboardMovements implements KeyListener
         }
         if (code == KeyEvent.VK_D) { 
             rightPressed = false; //set the rightPressed variable to true if the D key is pressed    
+        }
+        if (code == KeyEvent.VK_P) { 
+            dancePressed = false; //set the rightPressed variable to true if the D key is pressed    
         }
     }
 }

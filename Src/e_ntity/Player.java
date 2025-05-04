@@ -81,6 +81,7 @@ public class Player extends Entity
             direction = "right";
             x += speed; //move the player right
         }
+        
 //technical changing of sprite in movement animation
         spriteCounter++;
         if (spriteCounter >12){  //player movement is then 10 fps
@@ -92,6 +93,21 @@ public class Player extends Entity
         }
         spriteCounter=0;
         }
+    }
+
+    else if (key.dancePressed ==true)
+        {
+            spriteCounter++;
+        if (spriteCounter >12){  //player movement is then 10 fps
+            if (spriteNum==1){
+                spriteNum=2;
+            }
+        else if (spriteNum == 2){
+            spriteNum=1;
+        }
+        spriteCounter=0;
+        }
+        else{}
     }
 
     }
