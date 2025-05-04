@@ -17,7 +17,7 @@ public class Project
         window.setLocationRelativeTo(null);
         window.setVisible(true); 
 
-        gamePanel.startGameThread();
+        gamePanel.startGameThread(); //starts the game thread
         
     }
 }
