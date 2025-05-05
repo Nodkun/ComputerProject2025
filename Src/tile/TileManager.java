@@ -70,7 +70,7 @@ public class TileManager {
         int col =0;
         int row = 0;
 
-        while (col<gp.maxWorldCol && row < gp.maxSWorldRow)
+        while (col<gp.maxWorldCol && row < gp.maxWorldRow)
         {
           String line = br.readLine();//read single line and print
 
@@ -119,9 +119,20 @@ public class TileManager {
       {
             int tileNum = mapTileNum[worldCol][worldRow];
 
-        g2.drawImage(tile[tileNum].image, x, y, gp.tileSize,gp.tileSize, null );
-        worldCol++;
+            int worldX = worldCol * gp.tileSize;
+            int worldY = worldRow * gp.tileSize;
+            int screenX = worldX - gp.player.worldx + gp.player.screenX;
+            int screenY = worldY - gp.player.worldy + gp.player.screenY;
+
+
+            
+        if (worldX > gp.player.worldx - gp.player.screenX && worldX< gp.player.worldx + gp.player.screenX &&
+         worldY > gp.player.worldy - gp.player.screenY && worldY< gp.player.worldy + gp.player.screenY )//only render the world arounf the player
+         {
+        g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize,gp.tileSize, null );
         
+         }
+         worldCol++;
 
         if (worldCol == gp.maxWorldCol){
 
