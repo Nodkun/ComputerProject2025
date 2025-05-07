@@ -20,12 +20,12 @@ public class TileManager {
     public TileManager(Subpanel gp) {
         this.gp=gp;
 
-        tile=new tile[10];//ten tiles for now
+        tile=new tile[20];//ten tiles for now
 
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        loadMap("/res/Maps/WorldGen2.txt");
+        loadMap("/res/Maps/WorldGen3.txt");
     }
 
     public void getTileImage(){
@@ -61,6 +61,14 @@ public class TileManager {
 
       tile[8]= new tile();
       tile[8].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/FloorTile.png"));
+
+      tile[9]= new tile();
+      tile[9].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/bridgedown.png"));
+
+      //tile[10]= new tile();
+      //tile[10].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/bridgeside.png"));
+      //not using till code is updated to follow spaces n stuff
+
 
        }
        catch(IOException e){
