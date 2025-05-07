@@ -2,6 +2,7 @@ package Src.e_ntity;
 
 //import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -26,6 +27,10 @@ public class Player extends Entity
 
         screenX = gp.screenWidth/2 -(gp.tileSize/2);
         screenY = gp.screenHeight/2 -(gp.tileSize/2);
+
+        hitBox = new Rectangle(8,16,28,28);
+
+
 
         setDefaultValues();
         getPlayerImage();
@@ -59,50 +64,76 @@ public class Player extends Entity
         }
         catch(IOException e)
         {
-                e.printStackTrace();
+                e.printStackTrace();//finds exeptions ig
         }
     }
     
     public void update(){ //this is called 60 times per second
 
-        if(key.upPressed == true || key.downPressed == true || key.leftPressed == true ||key.rightPressed == true)
+       
+
         {
+        if( key.upPressed == true || key.downPressed == true || key.leftPressed == true ||key.rightPressed == true){
         
          if(key.upPressed == true) //if the up key is pressed
         {
             direction = "up";
-            worldy -= speed; //move the player up
+           //move the player up
         }
-        else if(key.downPressed == true) //if the down key is pressed
+        if(key.downPressed == true) //if the down key is pressed
         {
             direction = "down";
-            worldy  += speed; //move the player down
+            //move the player down
         }
-        else if (key.leftPressed == true) //if the left key is pressed
+        if (key.leftPressed == true) //if the left key is pressed
         {
             direction = "left";
-            worldx -= speed; //move the player left
+            //move the player left
         }
-        else if(key.rightPressed == true) //if the right key is pressed
+        if(key.rightPressed == true) //if the right key is pressed
         {
             direction = "right";
-            worldx += speed; //move the player right
+           //move the player right
         }
+    
+//checking for collisons
+
+collisionOn = false;
+gp.collisionChecker.checkTile(this);
+if (!collisionOn) {
+    if (direction.equals("up")) worldy -= speed;
+    if (direction.equals("down")) worldy += speed;
+    if (direction.equals("left")) worldx -= speed;
+    if (direction.equals("right")) worldx += speed;
+
+    // Animate only if moved
+    spriteCounter++;
+    if (spriteCounter > 10) {
+        spriteNum = (spriteNum == 1) ? 2 : 1;
+        spriteCounter = 0;
+    }
+}
+
+        }
+
+       
+
+       
         
 //technical changing of sprite in movement animation
-        spriteCounter++;
-        if (spriteCounter >12){  //player movement is then 10 fps
-            if (spriteNum==1){
-                spriteNum=2;
-            }
-        else if (spriteNum == 2){
-            spriteNum=1;
-        }
-        spriteCounter=0;
-        }
+ //       spriteCounter++;
+    //    if (spriteCounter >12){  //player movement is then 10 fps
+        //    if (spriteNum==1){
+     //           spriteNum=2;
+      //      }
+  //      else if (spriteNum == 2){
+    //        spriteNum=1;
+     //   }
+      //  spriteCounter=0;
+      //  }
     }
 
-    else if (key.dancePressed ==true)
+     if (key.dancePressed ==true)
         {
             spriteCounter++;
         if (spriteCounter >12){  //player movement is then 10 fps

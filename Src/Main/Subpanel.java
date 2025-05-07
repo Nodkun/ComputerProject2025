@@ -37,6 +37,7 @@ public class Subpanel extends JPanel implements Runnable
     TileManager tileM = new TileManager(this);
     KeyboardMovements key = new KeyboardMovements(); //create an instance of the KeyboardMovements class
     public Player player = new Player(this, key); //create an instance of the Player class
+    public Collision collisionChecker = new Collision(this);
 
     Thread gameThread;
 

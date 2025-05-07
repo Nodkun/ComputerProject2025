@@ -13,9 +13,9 @@ import Src.Main.Subpanel;
 public class TileManager {
 
     Subpanel gp;
-    tile[] tile;
+    public tile[] tile;
 
-    int mapTileNum[][];
+    public int mapTileNum[][];
 
     public TileManager(Subpanel gp) {
         this.gp=gp;
@@ -36,21 +36,31 @@ public class TileManager {
 
       tile[1]= new tile();
       tile[1].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/Wall.png"));
+      tile[1].collision = true;
 
       tile[2]= new tile();
       tile[2].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/water.png"));
+      tile[2].collision = true;
 
       tile[3]= new tile();
       tile[3].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earth.png"));
 
       tile[4]= new tile();
       tile[4].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/tree.png"));
+      tile[4].collision = true;
 
       tile[5]= new tile();
       tile[5].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand.png"));
 
       tile[6]= new tile();
       tile[6].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/pathway.png"));
+
+      tile[7]= new tile();
+      tile[7].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/Tree2.png"));
+      tile[7].collision = true;
+
+      tile[8]= new tile();
+      tile[8].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/FloorTile.png"));
 
        }
        catch(IOException e){
