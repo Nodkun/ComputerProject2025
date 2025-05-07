@@ -23,7 +23,7 @@ public class Subpanel extends JPanel implements Runnable
     public final int maxScreenRow = 12; //12 rows
     public final int screenWidth = tileSize * maxScreenCol; //768 pixels
     public final int screenHeight = tileSize * maxScreenRow; //576 pixels
-
+//blazipoo
 
     //World Settings 
 //r2d2 is cool 
