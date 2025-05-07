@@ -1,0 +1,73 @@
+So since you guys =>(nihal and IDHANT (thoda sa moksh)) dont actually watch the vide which u dont code or dont have time to or kinda just forget
+im forced to make this3 ig for sirs questions
+
+
+
+What are arrays?
+Arrays are like lists of items
+syntax: type[] ArrayName = new type[];
+
+Here we use 
+public tile[] tile; in tilemanager class
+and in order to store data of images (and collison)
+we do tile[0(any index)]= new tile[];
+then we simply do
+tile.image=
+or tile.collision = 
+
+pretty simple i believe
+
+so now we have given memory to store in the array how do we implement it
+
+firstly for drawing the tiles
+
+we use
+
+
+    public void loadMap(String filePath)
+    
+       try 
+        InputStream is = getClass().getResourceAsStream(filePath);
+        
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+        int col =0;
+        int row = 0;
+
+        while (col<gp.maxWorldCol && row < gp.maxWorldRow)
+        {
+          String line = br.readLine();//read single line and print
+
+          while (col<gp.maxWorldCol)
+          {
+            String numbers[] = line.split("");//splits the string
+
+            int num = Integer.parseInt(numbers [col]);//changes it from string to int 
+
+            mapTileNum[col][row]=num;
+
+            col++;
+          }
+          if (col==gp.maxWorldCol)
+          {
+            col = 0;
+            row++;
+          }
+        }
+        br.close();
+
+ive removed brackets for spacd
+
+anyways here we use filepath to lead it to the world gen file
+
+then we use buffered reader to read the file that is the world gen
+
+there is a way to add spaces which we have to implement so that tiles past no 9  can be acsessed but dont have it rn
+
+what is buffered reader u may ask
+
+its similar to scanner in some ways
+but in reality its faster than scanner can take large inputs
+
+then we use buffered reafder to read a single line and split it to fursther use it
