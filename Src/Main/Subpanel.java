@@ -26,7 +26,7 @@ public class Subpanel extends JPanel implements Runnable
 
 
     //World Settings 
-
+//r2d2 is cool 
     public final int maxWorldCol = 50;
     public final int maxWorldRow = 50;
     public final int worldWidth = tileSize * maxWorldCol;
